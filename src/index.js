@@ -6,6 +6,12 @@ import "../style/index.css";
 
 
 
+import {
+  PageConfig
+} from '@jupyterlab/coreutils'
+
+
+
 
 
 import {
@@ -99,7 +105,11 @@ const activate = (app, cellTools, notebookTracker) => {
   console.log(notebookTracker)
 
 
-
+  fetch(PageConfig.getBaseUrl() + "grader")
+  .then(res => res.json())
+  .then(res => {
+    console.log(res)
+  });
 
 
 

@@ -1,9 +1,6 @@
-# Running `npm run build` will create static resources in the static
-# directory of this Python package (and create that directory if necessary).
-
+__version__ = '0.0.1'
 
 def _jupyter_labextension_paths():
     return [{
-        'name': 'jupyterlab_myfirstextension',
-        'src': 'static',
+        "module": "jupyterlab_myfirstextension.extension"
     }]
