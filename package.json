@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "jupyterlab_myfirstextension",
+  "version": "0.1.0",
+  "description": "{{ cookiecutter.project_short_description }}",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "homepage": "{{ cookiecutter.repository }}",
+  "bugs": {
+    "url": "{{ cookiecutter.repository }}/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": "rmotr.com",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "{{ cookiecutter.repository }}.git"
+  },
+  "scripts": {},
+  "dependencies": {
+    "@jupyterlab/application": "^0.19.1",
+    "@jupyterlab/apputils": "^0.19.1",
+    "@phosphor/widgets": "^1.6.0"
+  },
+  "devDependencies": {},
+  "jupyterlab": {
+    "extension": true
+  }
+}

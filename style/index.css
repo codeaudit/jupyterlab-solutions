@@ -1,0 +1,17 @@
+.solution-button {
+
+}
+
+.solution-button .active {
+
+}
+
+.jp-Cell.rmotr-cell-isSolution {
+  background-color: #ddeeff !important;
+}
+
+.jp-Cell.rmotr-cell-isSolution .rmotr-solutionText {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0.2rem 0.2rem 0.7rem;
+}
