@@ -38,8 +38,8 @@ also add
 on `/Users/<USERNAME>/.jupyter/jupyter_notebook_config.json`.
 
 ## Adding custom variables
-Add the following to `/Users/<USERNAME>/.jupyter/jupyter_notebook_config.py`.
 
+Add the following to `/Users/<USERNAME>/.jupyter/jupyter_notebook_config.py`.
 ```
-c.JupyterLabIFrame.MY_VARIABLE = 'MY_VALUE'
+c.JupyterLabCustomConfig.MY_VARIABLE = 'MY_VALUE'
 ```

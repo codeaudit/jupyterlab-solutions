@@ -1,17 +1,67 @@
-.solution-button {
+/* 
+#016DEF
+#107DFF
+#3390FF
+#5CA6FF
+#88BEFE
+*/
 
-}
-
-.solution-button .active {
-
-}
-
+/* define new styles */
 .jp-Cell.rmotr-cell-isSolution {
   background-color: #ddeeff !important;
+  margin-bottom: 1rem;
+}
+
+.jp-Cell:not(.rmotr-cell-isSolution) .jp-Cell-inputArea.p-mod-hidden {
+  display: inherit !important;
+}
+
+.jp-Cell.rmotr-cell-isSolution .jp-Cell-inputWrapper {
+  margin-top: 5px;
+}
+
+.jp-Cell.rmotr-cell-isSolution .jp-CellHeader {
+  height: auto;
+}
+
+.jp-Cell.rmotr-cell-isSolution:hover .rmotr-toggleSolutionButton {
+  opacity: 0.2;
+}
+
+.jp-Cell.rmotr-cell-isSolution.jp-mod-active .rmotr-toggleSolutionButton {
+  opacity: 1;
+}
+
+.jp-Cell.rmotr-cell-isSolution .rmotr-toggleSolutionButton {
+  color: #FFF;
+  background-color: #3390FF;
+  opacity: 0;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  padding: 4px 8px;
+  margin: 0.2rem 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.jp-Cell.rmotr-cell-isSolution .rmotr-toggleSolutionButton:hover {
+  background-color: #107DFF;
+  opacity: 1;
+  box-shadow: var(--jp-elevation-z2);
+}
+
+.jp-Cell.rmotr-cell-isSolution .rmotr-toggleSolutionButton:active {
+  background-color: #016DEF;
 }
 
 .jp-Cell.rmotr-cell-isSolution .rmotr-solutionText {
+  color: var(--jp-cell-prompt-not-active-font-color);
+  display: inline-block;
+  opacity: 0.6;
   font-size: 0.75rem;
-  font-weight: 600;
-  margin: 0.2rem 0.2rem 0.7rem;
+  font-style: italic;
+  margin: 7px;
 }
+
