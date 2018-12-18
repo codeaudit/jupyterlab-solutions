@@ -2,10 +2,10 @@ import { ICellTools, INotebookTracker } from "@jupyterlab/notebook";
 import { DisposableDelegate } from '@phosphor/disposable';
 import { ToolbarButton } from '@jupyterlab/apputils';
 import { PageConfig } from '@jupyterlab/coreutils'
-import { GraderTool } from "./components";
+import { CellToolsImageWidget } from "./components";
 import "../style/index.css";
 
-class ButtonExtension {
+class SolutionsToolbarButton {
   constructor(notebookTracker) {
     this.notebookTracker = notebookTracker;
   }
@@ -47,7 +47,9 @@ const createSolutionHeader = (cell) => {
   var solutionButton = cell.node.getElementsByClassName('rmotr-toggleSolutionButton')[0];
 
   solutionButton.addEventListener('click', (evt) => {
-    if (cell.inputArea.isHidden) {
+    const isCollapsed = cell.inputArea.isHidden
+
+    if (isCollapsed) {
       cell.inputArea.show();
       solutionButton.innerHTML = 'Hide solution';
     } else {
@@ -57,7 +59,7 @@ const createSolutionHeader = (cell) => {
   });
 }
 
-const toggleCellAsSolution = (cell, firstLoad) => {
+const toggleCellAsSolution = (cell, firstLoad, isTeacher) => {
   const { model } = cell;
   const { metadata } = model;
   const currentSolutionValue = metadata.get('is_solution');
@@ -82,40 +84,47 @@ const toggleCellAsSolution = (cell, firstLoad) => {
 }
 
 /**
- * Initialization data for the jupyterlab_myfirstextension extension.
+ * Initialization data for the jupyterlab_rmotr_solutions extension.
  */
 const activate = (app, cellTools, notebookTracker) => {
-  console.log('JupyterLab extension jupyterlab_myfirstextension is activated!');
-  // const graderTool = new GraderTool(notebookTracker, app);
-  // cellTools.addItem({ tool: graderTool, rank: 0 });
+  console.log('>>> JupyterLab extension jupyterlab_rmotr_solutions is activated!');
 
-  // add button on toolbar
-  app.docRegistry.addWidgetExtension('Notebook', new ButtonExtension(notebookTracker));
-  
-  console.log('=== NOTEBOOK TRACKER: ', notebookTracker);
+  // add image widget on cellTools
+  const cellToolsImageWidget = new CellToolsImageWidget(notebookTracker);
+  cellTools.addItem({ tool: cellToolsImageWidget, rank: 0 });
 
-  fetch(PageConfig.getBaseUrl() + "grader")
+  let isEnabled = true;
+  let isStudent = true;
+  let isTeacher = false;
+
+  fetch(`${PageConfig.getBaseUrl()}rmotr-solutions`)
   .then(res => res.json())
   .then(res => {
-    console.log('==== VARIABLES LOADED: ', res);
-  });
+    console.log(res);
+    isEnabled = false && res.is_enabled;
+    isStudent = res.is_student;
+    isTeacher = res.is_teacher;
 
-  // update solution cells
-  notebookTracker.widgetAdded.connect(() => {
-    const { currentWidget } = notebookTracker;
+    // add button on toolbar
+    if (isEnabled) app.docRegistry.addWidgetExtension('Notebook', new SolutionsToolbarButton(notebookTracker));
 
-    currentWidget.revealed.then(() => {
-      const { content } = currentWidget;
+    // update solution cells
+    notebookTracker.widgetAdded.connect(() => {
+      const { currentWidget } = notebookTracker;
 
-      content.widgets.forEach(cell => {
-        toggleCellAsSolution(cell, true);
+      currentWidget.revealed.then(() => {
+        const { content } = currentWidget;
+
+        content.widgets.forEach(cell => {
+          toggleCellAsSolution(cell, true, isTeacher);
+        })
       })
     })
-  })
+  });
 }
 
 const extension = {
-  id: "jupyterlab-myfirstextension",
+  id: "jupyterlab_rmotr_solutions",
   autoStart: true,
   requires: [ICellTools, INotebookTracker],
   activate: activate

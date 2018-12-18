@@ -1,23 +1,22 @@
 {
-  "private": true,
-  "name": "jupyterlab_myfirstextension",
-  "version": "0.1.0",
-  "description": "{{ cookiecutter.project_short_description }}",
+  "name": "@rmotr/jupyterlab-solutions",
+  "version": "0.0.1",
+  "description": "Add your own exercises to JupyterLab",
   "keywords": [
     "jupyter",
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "{{ cookiecutter.repository }}",
+  "homepage": "https://github.com/rmotr/jupyterlab-solutions.git",
   "bugs": {
-    "url": "{{ cookiecutter.repository }}/issues"
+    "url": "https://github.com/rmotr/jupyterlab-solutions/issues"
   },
   "license": "BSD-3-Clause",
   "author": "rmotr.com",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "{{ cookiecutter.repository }}.git"
+    "url": "https://github.com/rmotr/jupyterlab-solutions.git"
   },
   "scripts": {},
   "dependencies": {

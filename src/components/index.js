@@ -1,1 +1,1 @@
-export * from "./gradertool";
+export * from "./cellToolsImageWidget";

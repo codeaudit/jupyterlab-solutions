@@ -1,18 +1,15 @@
-# jupyterlab_myfirstextension
+# jupyterlab-rmotr-solutions
 
 My first extension description
 
-
-## Prerequisites
-
-* JupyterLab
 
 ## Installation
 
 To install using pip:
 
 ```bash
-jupyter labextension install jupyterlab_myfirstextension
+pip install -r requirements.txt
+jupyter labextension install @rmotr/jupyterlab-solutions
 ```
 
 ## Development
@@ -30,16 +27,18 @@ also add
   "NotebookApp": {
     "nbserver_extensions": {
       "jupyter_nbextensions_configurator": true,
-      "jupyterlab_myfirstextension.extension": true
+      "jupyterlab_rmotr_solutions": true
     }
   }
 }
 ```
 on `/Users/<USERNAME>/.jupyter/jupyter_notebook_config.json`.
 
-## Adding custom variables
+## Adding custom variables
 
 Add the following to `/Users/<USERNAME>/.jupyter/jupyter_notebook_config.py`.
 ```
-c.JupyterLabCustomConfig.MY_VARIABLE = 'MY_VALUE'
+c.JupyterLabRmotrSolutions.is_enabled = True
+c.JupyterLabRmotrSolutions.is_student = True
+c.JupyterLabRmotrSolutions.is_teacher = False
 ```
