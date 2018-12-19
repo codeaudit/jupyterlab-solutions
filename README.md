@@ -39,6 +39,5 @@ on `/Users/<USERNAME>/.jupyter/jupyter_notebook_config.json`.
 Add the following to `/Users/<USERNAME>/.jupyter/jupyter_notebook_config.py`.
 ```
 c.JupyterLabRmotrSolutions.is_enabled = True
-c.JupyterLabRmotrSolutions.is_student = True
-c.JupyterLabRmotrSolutions.is_teacher = False
+c.JupyterLabRmotrSolutions.role = 'teacher'
 ```

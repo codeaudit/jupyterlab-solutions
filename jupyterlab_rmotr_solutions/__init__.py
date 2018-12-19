@@ -6,19 +6,14 @@ from notebook.utils import url_path_join
 __version__ = '0.0.1'
 
 class RmotrSolutionsHandler(IPythonHandler):
-    def initialize(self,
-                   is_enabled=None,
-                   is_student=None,
-                   is_teacher=None):
+    def initialize(self, is_enabled=None, role=None):
         self.is_enabled = is_enabled
-        self.is_student = is_student
-        self.is_teacher = is_teacher
+        self.role = role
 
     def get(self):
         res_dict = {
             'is_enabled': self.is_enabled or False,
-            'is_student': self.is_student or False,
-            'is_teacher': self.is_teacher or False,
+            'role': self.role or '',
         }
 
         self.finish(json.dumps(res_dict))
@@ -33,8 +28,7 @@ def load_jupyter_server_extension(nb_server_app):
     web_app = nb_server_app.web_app
     rmotr_solutions_config = nb_server_app.config.get('JupyterLabRmotrSolutions', {})
     is_enabled = rmotr_solutions_config.get('is_enabled', [])
-    is_student = rmotr_solutions_config.get('is_student', [])
-    is_teacher = rmotr_solutions_config.get('is_teacher', [])
+    role = rmotr_solutions_config.get('role', [])
 
     host_pattern = '.*$'
     base_url = web_app.settings['base_url']
@@ -43,8 +37,7 @@ def load_jupyter_server_extension(nb_server_app):
 
     config_dict = {
         'is_enabled': is_enabled,
-        'is_student': is_student,
-        'is_teacher': is_teacher
+        'role': role,
     }
 
     web_app.add_handlers(host_pattern, [(path, RmotrSolutionsHandler, config_dict)])
