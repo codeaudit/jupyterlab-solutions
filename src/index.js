@@ -14,7 +14,7 @@ class SolutionsToolbarButton {
     let handleSolutionButton = () => {
       const activeCell = this.notebookTracker.activeCell;
 
-      toggleCellAsSolution(activeCell)
+      toggleCellAsSolution(activeCell, false, true);
     }
   
     let solutionButton = new ToolbarButton({
