@@ -8,8 +8,8 @@ My first extension description
 To install using pip:
 
 ```bash
-jupyter labextension install https://github.com/rmotr/jupyterlab-solutions
-pip install git+https://github.com/rmotr/jupyterlab-solutions.git
+jupyter labextension install @rmotr/jupyterlab-solutions
+pip install jupyterlab-solutions
 ```
 
 ## Development
