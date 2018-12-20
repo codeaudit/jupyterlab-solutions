@@ -105,7 +105,7 @@ const activate = (app, cellTools, notebookTracker) => {
   .then(res => {
     console.log(res);
     isEnabled = res.is_enabled;
-    isTeacher = res.role === '1teacher';
+    isTeacher = res.role === 'teacher';
 
     if (isEnabled) {
       if (isTeacher) {
