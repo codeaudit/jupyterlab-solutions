@@ -107,10 +107,14 @@ const activate = (app, cellTools, notebookTracker) => {
     isEnabled = res.is_enabled;
     isTeacher = res.role === 'teacher';
 
+    console.log('UPDATED')
+
     if (isEnabled) {
       if (isTeacher) {
         // add button on toolbar
         app.docRegistry.addWidgetExtension('Notebook', new SolutionsToolbarButton(notebookTracker));
+
+        console.log('ADD TEACHER BUTTON')
       }
 
       // update solution cells
