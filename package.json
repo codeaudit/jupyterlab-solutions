@@ -1,6 +1,6 @@
 {
   "name": "@rmotr/jupyterlab-solutions",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Add your own exercises to JupyterLab",
   "keywords": [
     "jupyter",

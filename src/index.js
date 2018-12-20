@@ -91,7 +91,7 @@ const toggleCellAsSolution = (cell, isFirstLoad, isTeacher) => {
  * Initialization data for the jupyterlab_rmotr_solutions extension.
  */
 const activate = (app, cellTools, notebookTracker) => {
-  console.log('>>> JupyterLab extension jupyterlab_rmotr_solutions is activated!');
+  console.log('>>> JupyterLab extension jupyterlab_rmotr_solutions (beta) is activated!');
 
   // add image widget on cellTools
   // const cellToolsImageWidget = new CellToolsImageWidget(notebookTracker);
@@ -103,18 +103,13 @@ const activate = (app, cellTools, notebookTracker) => {
   fetch(`${PageConfig.getBaseUrl()}rmotr-solutions`)
   .then(res => res.json())
   .then(res => {
-    console.log(res);
     isEnabled = res.is_enabled;
     isTeacher = res.role === 'teacher';
-
-    console.log('UPDATED')
 
     if (isEnabled) {
       if (isTeacher) {
         // add button on toolbar
         app.docRegistry.addWidgetExtension('Notebook', new SolutionsToolbarButton(notebookTracker));
-
-        console.log('ADD TEACHER BUTTON')
       }
 
       // update solution cells
