@@ -10,6 +10,7 @@ To install using pip:
 ```bash
 jupyter labextension install @rmotr/jupyterlab-solutions
 pip install jupyterlab-solutions
+jupyter serverextension enable jupyterlab_rmotr_solutions
 ```
 
 ## Development
