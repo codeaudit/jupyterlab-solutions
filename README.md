@@ -1,7 +1,10 @@
-# jupyterlab-rmotr-solutions
+# JupyterLab Solutions
 
-My first extension description
+A simple extension to hide solution cells in Jupyter Lab. Meant for teachers and students.
 
+<p align="center">
+<a href="https://notebooks.rmotr.com/fork/santiagobasulto/demonstration-of-jupyterlab-solutions-bcbbbdb9"><img src="https://user-images.githubusercontent.com/872296/50401412-30056380-076d-11e9-91d3-6bad93b540ef.png" width="170px"></a>
+</p>
 
 ## Installation
 
