@@ -6,6 +6,12 @@ A simple extension to hide solution cells in Jupyter Lab. Meant for teachers and
 <a href="https://notebooks.rmotr.com/fork/santiagobasulto/demonstration-of-jupyterlab-solutions-bcbbbdb9"><img src="https://user-images.githubusercontent.com/872296/50401412-30056380-076d-11e9-91d3-6bad93b540ef.png" width="170px"></a>
 </p>
 
+### Demo as _teacher_
+![solutions-teacher](https://user-images.githubusercontent.com/7065401/50402147-123afd00-0773-11e9-902c-8b72c266503c.gif)
+
+### Demo as _student_
+![solutions-student](https://user-images.githubusercontent.com/7065401/50402146-11a26680-0773-11e9-8c7a-36acc1fbcb85.gif)
+
 ## Installation
 
 To install using pip:
